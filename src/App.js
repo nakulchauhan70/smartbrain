@@ -3,6 +3,7 @@ import './App.css';
 import Particles from 'react-particles-js';
 import Navigation from './components/Navigation/Navigation';
 import Background from './components/Background/Background';
+import Tab from './components/Tab/Tab';
 
 const particleOptions = {
 	particles: {
@@ -25,6 +26,7 @@ function App() {
 		/>
   		<Navigation />
     	<Background className="background"/>
+    	<Tab />
   	</div> 
   );
 }
