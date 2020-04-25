@@ -48,48 +48,36 @@ class Collapse extends React.Component {
 	render() {
 		const { isFaceRecognitrionCollapsed, isSpeechRecognitionCollapsed } = this.state;
 		return (
-			<div class="content-container">
-				<div id="content1" class="content">	
-					<div class = "collapse-container">
-						<div class = "collapse1">
-							<input type="checkbox" id="title1" onClick={ this.collaspeFaceRecognition } />
-	      					<label for="title1">
-	      						<p id="header">Face Recognition</p>
-	      						<p id="sign">+</p>
-	      					</label>
+			<div className = "collapse-container">
+				<div className = "collapse1">
+					<input type="checkbox" id="title1" onClick={ this.collaspeFaceRecognition } />
+  					<label htmlFor="title1">
+  						<p id="header">Face Recognition</p>
+  						<p id="sign">+</p>
+  					</label>
 
-							<div class="smartContent">
-								<h1>Face Recognition</h1>
-								<div class="content-description">
-									<input type="text" name="" />
-									<button onClick="#">Detect</button>
-								</div>
-							</div>
+					<div className="smartContent">
+						<h1>Face Recognition</h1>
+						<div className="content-description">
+							<input type="text" name="" />
+							<button onClick="#">Detect</button>
 						</div>
-
-						<div class="collapse2">
-							<input type="checkbox" id="title2" onClick={ this.collapseSpeechRecognition } />
-	      					<label for="title2">
-	      						<p id="header">Speech Recognition</p>
-	      						<p id="sign">+</p>
-	      					</label>
-
-							<div class="smartContent">
-								<p>Your smartContent goes here.</p>
-							</div>			
-						</div>  
 					</div>
 				</div>
 
-				<div id="content2" class="content" ref='content2'>
-					<h1>Face Recognition 2</h1>
-					<div class="content-description">
-						<input type="text" name="" />
-						<button onClick="#">Detect</button>
-					</div>
-				</div>
+				<div className="collapse2">
+					<input type="checkbox" id="title2" onClick={ this.collapseSpeechRecognition } />
+  					<label htmlFor="title2">
+  						<p id="header">Speech Recognition</p>
+  						<p id="sign">+</p>
+  					</label>
+
+					<div className="smartContent">
+						<p>Your smartContent goes here.</p>
+					</div>			
+				</div>  
 			</div>
-	);
+		);
 	}
 	
 }

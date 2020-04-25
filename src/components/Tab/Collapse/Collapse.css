@@ -1,14 +1,10 @@
 .content {
   background: linear-gradient(to right, rgb(192, 192, 192), rgb(50, 99, 96));
+  height: 700px;
+  position: absolute;
   transform: translateX(100%);
   transition: 0.3s;
-  width:80%;
-  height: 700px;
-  position: relative;
-  margin: -100px auto;
-  overflow: hidden;
-  /*margin-top: 10%;*/
-  border-bottom-radius: 5px;
+  width: 100%;
 }
 
 .content h1 {
@@ -58,16 +54,7 @@
 .content .collapse-container {
   padding: 10%;
   margin: auto;
-  width: 70%;
-}
-
-#content1 {
-  transform: translateX(0px);
-}
-
-#braintab {   
-  color: maroon;
-  background: linear-gradient(to right, rgb(192, 192, 192), rgb(50, 99, 96));
+  width: 80%;
 }
 
 #title1, #title2 {
@@ -109,4 +96,3 @@ label #sign {
 input + label + .smartContent {
   display: none;
 }
-

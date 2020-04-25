@@ -1,22 +1,9 @@
 import React from  'react';
 import './Tab.css';
+import FA from 'react-fontawesome';
+import Collapse from './Collapse/Collapse';
 
 class Tab extends React.Component {
-
-	// constructor() {
-	// 	super();
-	// 	this.attributes = {
-	// 		content1: document.getElementById("content1"),
-	// 		content2: document.getElementById("content2"),
-	// 		btn1: document.getElementById("braintab"),
-	// 		btn2: document.getElementById("gallerytab")
-	// 	}
-
-	// 	this.openSmartBrain = this.openSmartBrain.bind(this);
-	// 	this.openGallery = this.openGallery.bind(this);
-	// 	this.collapse = this.collapse.bind(this);
-		
-	// }
 
 	openSmartBrain = () => {
 		var content1 = this.refs.content1;
@@ -53,55 +40,23 @@ class Tab extends React.Component {
 
 	render() {
 		return (
-			<div class="navtab">
-				<div class="btn-box">
+			<div className="navtab">
+				<div className="btn-box">
 					<button id="braintab" onClick={ this.openSmartBrain } ref = "btn1" >
-						<i class="fa fa-rocket" aria-hidden="true"></i>
+						<i className="fa fa-picture-o" aria-hidden="true"></i>
 						Smart brain
 					</button>
 					<button id="gallerytab" onClick={ this.openGallery } ref = "btn2" >
-						<i class="fa fa-picture-o" aria-hidden="true"></i>
+						<i className="fa fa-picture-o" aria-hidden="true"></i>
 						Gallary
 					</button>
 				</div>
-				<div class="content" id="content1" ref="content1">	
-					<div class="collapse-container">
-						<div class="collapse1">
-							<input type="checkbox" id="title1" onclick="collapse('collapse1', 'collapse2')" />
-	      					<label for="title1">
-	      						<p id="header">Face Recognition</p>
-	      						<p id="sign">+</p>
-	      					</label>
-
-							<div class="smartContent">
-								<h1>Face Recognition</h1>
-								<div class="content-description">
-									<input type="text" name="" />
-									<button onclick="#">Detect</button>
-								</div>
-							</div>
-						</div>
-
-						<div class="collapse2">
-							<input type="checkbox" id="title2" onclick="collapse('collapse2', 'collapse1')" />
-	      					<label for="title2">
-	      						<p id="header">Speech Recognition</p>
-	      						<p id="sign">+</p>
-	      					</label>
-
-							<div class="smartContent">
-								<p>Your smartContent goes here.</p>
-							</div>
-						</div>  
-					</div>
+				<div className="content" id="content1" ref="content1">	
+					<Collapse className="collapse"/>
 				</div>
 
-				<div class="content" id="content2" ref="content2">
-					<h1>Face Recognition 2</h1>
-					<div class="content-description">
-						<input type="text" name="" />
-						<button onclick="#">Detect</button>
-					</div>
+				<div className="content" id="content2" ref="content2">
+					
 				</div>
 			</div>
 		);
