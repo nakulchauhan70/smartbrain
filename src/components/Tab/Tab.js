@@ -53,7 +53,7 @@ class Tab extends React.Component {
 				</div>
 				<div className="content" id="content1" ref="content1">	
 					<Collapse className="collapse"/>
-				</div>
+				</div>										
 
 				<div className="content" id="content2" ref="content2">
 					
