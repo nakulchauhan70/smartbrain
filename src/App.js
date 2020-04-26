@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Particles from 'react-particles-js';
 import Navigation from './components/Navigation/Navigation';
 import Background from './components/Background/Background';
+import SignIn from './components/SignIn/SignIn';
 import Tab from './components/Tab/Tab';
+import GallaryImages from './components/Tab/GallaryImages/GallaryImages';
 
 const particleOptions = {
 	particles: {
 		number: {
-			value: 30,
+			value: 80,
 			density: {
 				enable: true,
 				value_area: 800
@@ -17,18 +19,66 @@ const particleOptions = {
 	}
 }
 
+const initialState = {
+	route: 'home',
+	isSignedIn: false,
+	showSignInPopup: true
+}
 
-function App() {
-  return (
-  	<div>
-  		<Particles className='particles'
-				params={ particleOptions }
-		/>
-  		<Navigation />
-    	<Background className="background"/>
-    	<Tab />
-  	</div> 
-  );
+
+class App extends Component {
+
+	constructor() {
+		super();
+		this.state = initialState;
+	}
+
+	onRouteChange = (route) => {
+		console.log("route", route);
+		if(route === 'signin') {
+			this.setState({
+				isSignedIn: true,
+				// showSignInPopup: true		//needs to be removed later
+			})
+		}
+
+		if(route === 'signinpopup') {
+			this.setState({
+				showSignInPopup: false
+			})
+		}
+
+		if(route === 'signout') {
+			this.setState({
+				showSignInPopup: true,
+				isSignedIn: false
+			})
+		}
+
+		this.setState({
+			route: route
+		})
+	}
+
+	render() {
+		const { route, isSignedIn, showSignInPopup } = this.state;
+		return (
+		  	<div>
+		  		<Particles className='particles'
+						params={ particleOptions }
+				/>
+		  		<Navigation openSignInPopupProxy = { showSignInPopup } isSignedInProxy = { isSignedIn } onRouteChangeProxy = {this.onRouteChange}/>
+		    	<Background className="background"/>
+		    	{
+		    		route === 'signinpopup'
+		    		? <SignIn />
+		    		: ( route === 'home' 
+		    			? <div></div>
+		    			: <Tab />)
+		    	}
+		  	</div> 
+		);
+	}
 }
 
 export default App;

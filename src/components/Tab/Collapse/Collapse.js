@@ -1,6 +1,6 @@
 import React from  'react';
 import './Collapse.css'
-
+import FaceRecognition from '../FaceRecognition/FaceRecognition'
 class Collapse extends React.Component {
 
 	constructor() {
@@ -51,23 +51,20 @@ class Collapse extends React.Component {
 			<div className = "collapse-container">
 				<div className = "collapse1" ref="collapse1">
 					<input type="checkbox" id="title1" onClick={() => this.collapse('collapse1') } />
-  					<label htmlFor="title1">
+  					<label htmlFor="title1" class="collapse-label">
   						<p id="header">Face Recognition</p>
   						<p id="sign">+</p>
   					</label>
 
 					<div className="smartContent">
-					<h1>Face Recognition</h1>
-					<div className="content-description">
-						<input type="text" name="" />
-						<button onClick="#">Detect</button>
-					</div>
+						<h1>Face Recognition</h1>
+						<FaceRecognition />
 					</div>
 				</div>
 
 				<div className="collapse2" ref="collapse2">
 					<input type="checkbox" id="title2" onClick={() => this.collapse('collapse2') } />
-  					<label htmlFor="title2">
+  					<label htmlFor="title2" class="collapse-label">
   						<p id="header">Speech Recognition</p>
   						<p id="sign">+</p>
   					</label>

@@ -16,3 +16,7 @@ code {
   height: 10%;
   z-index: -1;
 }
+
+button {
+  cursor: pointer;
+}

@@ -2,6 +2,7 @@ import React from  'react';
 import './Tab.css';
 import FA from 'react-fontawesome';
 import Collapse from './Collapse/Collapse';
+import GallaryImages from './GallaryImages/GallaryImages';
 
 class Tab extends React.Component {
 
@@ -56,7 +57,7 @@ class Tab extends React.Component {
 				</div>										
 
 				<div className="content" id="content2" ref="content2">
-					
+					<GallaryImages />
 				</div>
 			</div>
 		);
