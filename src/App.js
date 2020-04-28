@@ -3,7 +3,7 @@ import './App.css';
 import Particles from 'react-particles-js';
 import Navigation from './components/Navigation/Navigation';
 import Background from './components/Background/Background';
-import SignIn from './components/SignIn/SignIn';
+import Register from './components/Register/Register/Register';
 import Tab from './components/Tab/Tab';
 import GallaryImages from './components/Tab/GallaryImages/GallaryImages';
 
@@ -71,7 +71,7 @@ class App extends Component {
 		    	<Background className="background"/>
 		    	{
 		    		route === 'signinpopup'
-		    		? <SignIn />
+		    		? <Register />
 		    		: ( route === 'home' 
 		    			? <div></div>
 		    			: <Tab />)
