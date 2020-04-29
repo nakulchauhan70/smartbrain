@@ -5,25 +5,43 @@ import SignUp from '../SignUp/SignUp'
 
 class Register extends React.Component {
 
+	constructor() {
+		super();
+	}
+
+	openSignIn = () => {
+		var container = this.refs.container;
+		container.classList.remove("right-panel-active");
+	}
+
+	openSignUp = () => {
+		var container = this.refs.container;
+		container.classList.add("right-panel-active");
+	}
+
 	render() {
 		return(
-			<div class="register">
-		        <div class="signin-cont-desc" style={{'display': 'none'}}>
-		        	<h2>One of us?</h2>
-			        <p>If you already has an account, just sign in. We've missed you!</p>
-			        <span>SIGN IN</span>
-		        </div>
-		        <div class="signin-cont">
-		            <SignIn />
-		        </div>
-		        <div class="signup-cont" style={{'display': 'none'}}>
-		            <SignUp />
-		        </div>
-		        <div class="signup-cont-desc">
-					<h2>New here?</h2>
-			        <p>Sign up and discover great amount of new opportunities!</p>
-			        <span>SIGN UP</span>
-			    </div>
+			<div class="container" id="container" ref="container">
+				<div class="form-container sign-up-container">
+					<SignUp />
+				</div>
+				<div class="form-container sign-in-container">
+					<SignIn />
+				</div>
+				<div class="overlay-container">
+					<div class="overlay">
+						<div class="overlay-panel overlay-left">
+							<h1>Welcome Back!</h1>
+							<p>To keep connected with us please login with your personal info</p>
+							<button class="ghost" id="signIn" onClick={ this.openSignIn }>Sign In</button>
+						</div>
+						<div class="overlay-panel overlay-right">
+							<h1>Hello, Friend!</h1>
+							<p>Enter your personal details and start journey with us</p>
+							<button class="ghost" id="signUp" onClick={ this.openSignUp }>Sign Up</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		)
 	}
