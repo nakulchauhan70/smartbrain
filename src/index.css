@@ -20,3 +20,17 @@ code {
 button {
   cursor: pointer;
 }
+
+/**{
+overflow-y: scroll;
+}*/
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+*{
+    -ms-overflow-style: none;
+}
