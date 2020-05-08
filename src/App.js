@@ -22,7 +22,6 @@ const particleOptions = {
 const initialState = {
 	route: 'home',
 	isSignedIn: false,
-	showSignInPopup: true
 }
 
 
@@ -35,22 +34,14 @@ class App extends Component {
 
 	onRouteChange = (route) => {
 		console.log("route", route);
-		if(route === 'signin') {
-			this.setState({
-				isSignedIn: true,
-				// showSignInPopup: true		//needs to be removed later
-			})
-		}
-
-		if(route === 'signinpopup') {
-			this.setState({
-				showSignInPopup: false
-			})
-		}
+		// if(route === 'signin') {
+		// 	this.setState({
+		// 		isSignedIn: true,
+		// 	})
+		// }
 
 		if(route === 'signout') {
 			this.setState({
-				showSignInPopup: true,
 				isSignedIn: false
 			})
 		}
@@ -67,14 +58,16 @@ class App extends Component {
 		  		<Particles className='particles'
 						params={ particleOptions }
 				/>
-		  		<Navigation openSignInPopupProxy = { showSignInPopup } isSignedInProxy = { isSignedIn } onRouteChangeProxy = {this.onRouteChange}/>
+		  		<Navigation onRouteChangeProxy = { this.onRouteChange } isSignedInProxy = { isSignedIn } />
 		    	<Background className="background"/>
 		    	{
-		    		route === 'signinpopup'
-		    		? <Register />
-		    		: ( route === 'home' 
-		    			? <div></div>
-		    			: <Tab />)
+		    		route === 'home' 
+		    		? <div></div>
+		    		: (
+		    			route == 'signin'
+		    			? <Register />
+		    			: <Tab />
+		    		  )
 		    	}
 		  	</div> 
 		);

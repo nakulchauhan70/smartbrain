@@ -1,17 +1,14 @@
 import React from 'react';
 
-const Navigation = ({ openSignInPopupProxy, isSignedInProxy, onRouteChangeProxy }) => {
+const Navigation = ({ onRouteChangeProxy, isSignedInProxy}) => {
 
 	return (
 		<div>
-			<nav style={{display: 'flex', justifyContent: 'flex-end'}} className='f3 link dim red underline pointer'>
+			<nav style={{display: 'flex', justifyContent: 'flex-end'}}>
 				{
-					openSignInPopupProxy 
-					? <p onClick = { () => onRouteChangeProxy('signinpopup')}>SignInpo</p>
-					: ( isSignedInProxy 
-						? <p onClick = { () => onRouteChangeProxy('signout')}>SignOut</p>
-						: <p onClick = { () => onRouteChangeProxy('signin')}>SignIn</p>
-					)
+					isSignedInProxy 
+						? <p className='f3 link dim red underline pointer' onClick = { () => onRouteChangeProxy('signout')}>SignOut</p>
+						: <p className='f3 link dim red underline pointer' onClick = { () => onRouteChangeProxy('signin')}>SignIn</p>
 				}
 			</nav>
 		</div>
