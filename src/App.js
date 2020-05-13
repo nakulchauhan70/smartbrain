@@ -46,7 +46,7 @@ class App extends Component {
 		if(route === 'showSignInPopup') {
 			this.setState({
 				showSignInPopup: true,
-				landingPageShow: false
+				// landingPageShow: false
 			})
 		}
 
@@ -72,7 +72,7 @@ class App extends Component {
 				{
 					showSignInPopup 
 					? <Register className="register" />
-					: (route == 'isSignedIn') && <Tab />  
+					: (route == 'isSignedIn') && <Tab /> 
 				}
 		  	</div> 
 		);

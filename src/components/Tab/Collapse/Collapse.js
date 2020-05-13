@@ -1,6 +1,7 @@
 import React from  'react';
-import './Collapse.css'
-import FaceRecognition from '../FaceRecognition/FaceRecognition'
+import './Collapse.css';
+import FaceRecognition from '../FaceRecognition/FaceRecognition';
+
 class Collapse extends React.Component {
 
 	constructor() {

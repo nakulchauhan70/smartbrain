@@ -24,10 +24,21 @@
 	margin: 0;
 	padding: 0;
 	z-index: 1;
+	animation-name: hideanim;
+	animation-duration: .5s;
+  	animation-fill-mode: backwards;
+}
+
+@keyframes hideanim {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /*.register {
-	position: absolute;
 	top: 10;
 	margin: 0;
 	padding: 0;

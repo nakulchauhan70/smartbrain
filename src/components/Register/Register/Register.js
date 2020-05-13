@@ -1,7 +1,8 @@
 import React from 'react';
 import './Register.css';
 import SignIn from '../SignIn/SignIn';
-import SignUp from '../SignUp/SignUp'
+import SignUp from '../SignUp/SignUp';
+import LandingPage from '../../LandingPage/LandingPage';
 
 class Register extends React.Component {
 
@@ -100,7 +101,7 @@ class Register extends React.Component {
 
 	render() {
 		return(
-			<div class="container" id="container" ref={this.setWrapperRef}>
+			<div class="register" id="register" ref={this.setWrapperRef}>
 				<div class="signin" ref="sigin"><SignIn /></div>
 				<div class="signup" ref="signup"><SignUp /></div>
 				<div class="signin-desc" ref="signinDecs">		

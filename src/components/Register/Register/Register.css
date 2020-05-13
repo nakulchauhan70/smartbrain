@@ -1,11 +1,11 @@
-.container {
+.register {
 	position: relative;
 	width: 60%;
     height: 550px;
     /*background: #fff;*/
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
-    margin: 15% auto;
-    opacity: 0.8;
+    margin: -40% auto;
+    opacity: 0.9;
     border-radius: 5px;
     background-image: url('../images/bg.jpg');
     background-repeat: no-repeat;
@@ -13,7 +13,20 @@
     display: flex;
     justify-content: center;
     transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
-    margin-top: 0;
+    /*margin-top: -40%;*/
+    animation-name: animateBtn;
+  	animation-duration: 1s;
+  	animation-delay: 0.5s;
+  	animation-fill-mode: backwards;
+}
+
+@keyframes animateBtn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .signin {
