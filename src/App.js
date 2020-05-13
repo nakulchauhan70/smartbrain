@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Particles from 'react-particles-js';
+import LandingPage from './components/LandingPage/LandingPage';
 import Navigation from './components/Navigation/Navigation';
-import Background from './components/Background/Background';
+// import Background from './components/Background/Background';
 import Register from './components/Register/Register/Register';
 import Tab from './components/Tab/Tab';
 import GallaryImages from './components/Tab/GallaryImages/GallaryImages';
@@ -22,6 +23,8 @@ const particleOptions = {
 const initialState = {
 	route: 'home',
 	isSignedIn: false,
+	landingPageShow: true,
+	showSignInPopup: false
 }
 
 
@@ -40,6 +43,13 @@ class App extends Component {
 		// 	})
 		// }
 
+		if(route === 'showSignInPopup') {
+			this.setState({
+				showSignInPopup: true,
+				landingPageShow: false
+			})
+		}
+
 		if(route === 'signout') {
 			this.setState({
 				isSignedIn: false
@@ -52,23 +62,18 @@ class App extends Component {
 	}
 
 	render() {
-		const { route, isSignedIn, showSignInPopup } = this.state;
+		const { route, isSignedIn, landingPageShow, showSignInPopup } = this.state;
 		return (
 		  	<div>
 		  		<Particles className='particles'
 						params={ particleOptions }
 				/>
-		  		<Navigation onRouteChangeProxy = { this.onRouteChange } isSignedInProxy = { isSignedIn } />
-		    	<Background className="background"/>
-		    	{
-		    		route === 'home' 
-		    		? <div></div>
-		    		: (
-		    			route == 'signin'
-		    			? <Register />
-		    			: <Tab />
-		    		  )
-		    	}
+				{ landingPageShow && <LandingPage className = "landingPage" onRouteChangeProxy = { this.onRouteChange } />}
+				{
+					showSignInPopup 
+					? <Register className="register" />
+					: (route == 'isSignedIn') && <Tab />  
+				}
 		  	</div> 
 		);
 	}

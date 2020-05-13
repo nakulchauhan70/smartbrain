@@ -1,0 +1,143 @@
+*{
+  margin: 0;
+  padding: 0;
+  /*font-family: "montserrat",sans-serif;*/
+}
+
+.landing-page{
+  width: 100%;
+  height: 100%;
+  background: #000;
+  /*position: relative;*/
+  overflow: hidden;
+}
+
+.landing-page::after{
+  content: "";
+  /*position: absolute;*/
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: url(./images/bg.jpg) no-repeat;
+  background-size: cover;
+  /*opacity: .3;*/
+  animation: anim 15s linear infinite;
+}
+
+.page-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 1;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.page-content h1{
+  color: #ff7979;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.page-content h1 {
+  font-size: 80px;
+  color: #ddd;
+  font-weight: 300;
+  margin-bottom: 30px;
+  animation-name: moveToLeft;
+  animation-duration: 2s;
+}
+
+.page-content span {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+}
+
+.page-content p {
+  font-size: 50px;
+  font-weight: 300;
+  color: #eee;
+  margin-bottom: 20px;
+  animation-name: moveToRight;
+  animation-duration: 2s;
+  /*animation: moveToRight 2s; shortcut*/
+}
+
+.page-content button {
+  width: 180px;
+  padding: 12px;
+  margin: 20px;
+  border: 2px solid #eee;
+  border-radius: 50px;
+  font-size: 18px;
+  outline: none;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.btn-register {
+  background-color: #eee;
+  color: #444;
+  animation-name: animateBtn;
+  animation-duration: 1s;
+  animation-delay: 1.5s;
+  animation-fill-mode: backwards;
+  /*during the delat=y time button will be hidden due to opacity: 0*/
+}
+
+.btn-subscribe {
+  background-color: transparent;
+  color: #eee;
+  animation-name: animateBtn;
+  animation-duration: 1s;
+  animation-delay: 2.3s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes anim {
+  50%{
+    transform: scale(1.5);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+@keyframes moveToLeft {
+  0% {
+    transform: translateX(120px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes moveToRight {
+  0% {
+    transform: translateX(-120px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animateBtn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
