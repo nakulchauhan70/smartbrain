@@ -9,41 +9,23 @@ class Register extends React.Component {
 	constructor() {
 		super();
 
-		this.state = {
-			containerVisible: true
-		}
-
 		this.setWrapperRef = this.setWrapperRef.bind(this);
-	    this.handleClickOutside = this.handleClickOutside.bind(this);
+	    // this.handleClickOutside = this.handleClickOutside.bind(this);
 	}
 
-	  componentDidMount() {
-	    document.addEventListener('mousedown', this.handleClickOutside);
-	  }
+	  // componentDidMount() {
+	  //   document.addEventListener('mousedown', this.handleClickOutside);
+	  // }
 
-	  componentWillUnmount() {
-	    document.removeEventListener('mousedown', this.handleClickOutside);
-	  }
+	  // componentWillUnmount() {
+	  //   document.removeEventListener('mousedown', this.handleClickOutside);
+	  // }
 
 	  /**
 	   * Set the wrapper ref
 	   */
 	  setWrapperRef(node) {
 	    this.wrapperRef = node;
-	  }
-
-	  /**
-	   * Alert if clicked on outside of element
-	   */
-	  handleClickOutside(event) {
-	    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-	    	var containerWrapper = this.wrapperRef;
-	    	containerWrapper.style.opacity = "0";
-	    	containerWrapper.style.width = "0";
-	    	containerWrapper.style.height = "0";
-	    	containerWrapper.style.overflow="hidden"
-	    	containerWrapper.style.transition = "width 0.5s 0.5s, height 0.5s 0.5s, overflow 0.5s 0.5s, opacity 0.5s";
-	    }
 	  }
 
 	showSignIn = () => {
@@ -99,9 +81,21 @@ class Register extends React.Component {
 
 	}
 
+	hideRegister = () => {
+		var containerWrapper = this.wrapperRef;
+    	containerWrapper.style.opacity = "0";
+    	containerWrapper.style.width = "0";
+    	containerWrapper.style.height = "0";
+    	containerWrapper.style.overflow="hidden"
+    	containerWrapper.style.transition = "width 0.5s 0.5s, height 0.5s 0.5s, overflow 0.5s 0.5s, opacity 0.5s";
+
+    	this.props.onHideRegister();
+	}
+
 	render() {
+
 		return(
-			<div class="register" id="register" ref={this.setWrapperRef}>
+			<div class="register" id="register" ref={ this.setWrapperRef }>
 				<div class="signin" ref="sigin"><SignIn /></div>
 				<div class="signup" ref="signup"><SignUp /></div>
 				<div class="signin-desc" ref="signinDecs">		
@@ -113,6 +107,9 @@ class Register extends React.Component {
 					<h1>Hello, Friend!</h1>
 					<p>Enter your personal details and start journey with us</p>
 					<button class="signUpBtn" onClick={ this.showSignUp }>Sign Up</button>
+				</div>
+				<div className="cancel-popup">
+					<button onClick = { this.hideRegister }>X</button>
 				</div>
 			</div>
 		)

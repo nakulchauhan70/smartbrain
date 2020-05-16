@@ -24,7 +24,7 @@ const initialState = {
 	route: 'home',
 	isSignedIn: false,
 	landingPageShow: true,
-	showSignInPopup: false
+	showRegisterPopup: false
 }
 
 
@@ -43,12 +43,12 @@ class App extends Component {
 		// 	})
 		// }
 
-		if(route === 'showSignInPopup') {
-			this.setState({
-				showSignInPopup: true,
-				// landingPageShow: false
-			})
-		}
+		// if(route === 'showRegisterPopup') {
+		// 	this.setState({
+		// 		showRegisterPopup: true,
+		// 		// landingPageShow: false
+		// 	})
+		// }
 
 		if(route === 'signout') {
 			this.setState({
@@ -62,15 +62,15 @@ class App extends Component {
 	}
 
 	render() {
-		const { route, isSignedIn, landingPageShow, showSignInPopup } = this.state;
+		const { route, isSignedIn, landingPageShow, showRegisterPopup } = this.state;
 		return (
 		  	<div>
 		  		<Particles className='particles'
 						params={ particleOptions }
 				/>
-				{ landingPageShow && <LandingPage className = "landingPage" onRouteChangeProxy = { this.onRouteChange } />}
+				{ landingPageShow && <LandingPage className = "landingPage" /> }
 				{
-					showSignInPopup 
+					showRegisterPopup 
 					? <Register className="register" />
 					: (route == 'isSignedIn') && <Tab /> 
 				}
